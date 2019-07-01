@@ -1,5 +1,5 @@
 body {
-    max-width: 900px;
+    max-width: 1200px;
     margin: auto;
     background: black;
     color: white; 
@@ -59,23 +59,33 @@ footer {
     text-align: center;
 }
 footer p {
-    padding-top: 15px;    
+    padding-top: 15px;
+    font-size: 18px;    
 }
 /*  */
-@media (max-width: 900px) {
-    .nav {
+@media (max-width: 700px) {
+    .wrap {
       width: 100%;
       display: flex;
       justify-content: flex-start;
       text-align: center;
     }
     body {
-      width: 80%;
+      width: 96%;
     }
     .main {
       margin: 0 20px;
     }
-    p {
-      width: 135%;
+    td , tr{
+        height: 88px;
+    }
+    aside {
+        width: 30%;
+        height: 40%;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    footer, img {
+        width: 100%;
     }
   }

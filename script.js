@@ -23,7 +23,6 @@ const targetBox = $('td.box');
 // const targetBox = document.querySelectorAll('.box');
 
 const callback = function(){
-    
     // console.log('Clicked box'); // To test the event
     // we use event.target to catch the element that triggered the event
     $(event.target).text(symbol);
@@ -43,7 +42,6 @@ const callback = function(){
     // targetBox.forEach(function(item, index){
     //     targetBox[].text('X'); //how to determine the symbol
     // });
-    
 };
 
 function turns() {
