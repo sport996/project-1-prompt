@@ -1,18 +1,16 @@
 //DOM Manipulation
 //Getting Players Names
-// const player1 = prompt('Enter Player 1 name:');
-// const player2 = prompt('Enter Player 2 name:');
-// const getPlayersName = $('header h3');
-// getPlayersName[0].text(player1.toUpperCase());
-// getPlayersName[1].text(player2.toUpperCase());
+const player1 = prompt('Enter Player 1 name:');
+const player2 = prompt('Enter Player 2 name:');
+const getPlayersName = $('header h3');
+getPlayersName[0].innerText=player1.toUpperCase();
+getPlayersName[1].text(player2.toUpperCase());
 
 let symbol = "X";
-// let playerN = "Player 1";
 $('span > h1').text(symbol);
 $('span > h1').css({
     'fontSize':'80px','color':'yellow'
 });
-// $('aside > h1').text(playerN + ' Turn:');
 
 const eventType = 'click';
 const targetBox = $('td.box');
@@ -22,29 +20,34 @@ const callback = function(){
     // console.log('Clicked box'); // To test the event
     // we use event.target to catch the element that triggered the event
     $(event.target).text(symbol);
-    $(event.target).css('fontSize','90px',);
+    $(event.target).css({'fontSize':'90px', 'color':'#2196F3'});
     turns();
     $('span > h1').text(symbol);
     let result;
+
     if (winner() == 'X'){
         $('span > h1').text('_');
         $(targetBox).off('click');
-        alert("Player 1 has won");
+        $('aside > p').css('border','double #2196F3');
+        $('aside > p').text("Player 1 has won");
+        // alert("Player 1 has won");
     } 
     else if (winner() == 'O'){
         $('span > h1').text('_');
         $(targetBox).off('click');
-        alert("Player 2 has won");
+        $('aside > p').css('border','double #2196F3');
+        $('aside > p').text("Player 2 has won");
+        // alert("Player 2 has won");
     }
     else if ($(targetBox).text().length === 9){
         $('span > h1').text('_');
-        alert("It is a Tie ^_^");
+        $('aside > p').css('border','double #2196F3');
+        $('aside > p').text("It is a Tie ^_^");
+        // alert("It is a Tie ^_^");
     }
     
 }
-function fadeBody(result){
-    
-}
+
 function check(num1,num2,num3){
     if( (num1 && num2 && num3 ) != '' )
             if(num1 == num2 && num2 == num3)

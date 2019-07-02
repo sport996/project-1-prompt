@@ -52,6 +52,15 @@ aside > h1 {
     font-size: 35px;
     color: yellow;
 }
+
+aside > p {
+    /* border: double #2196F3; */
+    font-size: 55px;
+    padding: 2px 9px 2px 9px;
+    color: chocolate;
+    margin-bottom: 0px;
+}
+
 button {
     width: 60px;
     height: 30px;
