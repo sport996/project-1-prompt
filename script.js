@@ -2,9 +2,11 @@
 //Getting Players Names
 const player1 = prompt('Enter Player 1 name:');
 const player2 = prompt('Enter Player 2 name:');
-const getPlayersName = $('header h3');
-getPlayersName[0].innerText=player1.toUpperCase();
-getPlayersName[1].text(player2.toUpperCase());
+// let getPlayersName = $('header h3');
+$('h3#p1').css('fontSize', '35px');
+$('h3#p2').css('fontSize', '35px');
+$('h3#p1').text(player1.toUpperCase());
+$('h3#p2').text(player2.toUpperCase());
 
 let symbol = "X";
 $('span > h1').text(symbol);
