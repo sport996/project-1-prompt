@@ -2,16 +2,12 @@
 //Getting Players Names
 // const player1 = prompt('Enter Player 1 name:');
 // const player2 = prompt('Enter Player 2 name:');
-// const getPlayersName = $('h3');
+// const getPlayersName = $('header h3');
 // getPlayersName[0].text(player1.toUpperCase());
 // getPlayersName[1].text(player2.toUpperCase());
 
-
-// let board = [];
-// board.forEach(function(item, index){
-// });
 let symbol = "X";
-let playerN = "Player 1";
+// let playerN = "Player 1";
 $('span > h1').text(symbol);
 $('span > h1').css({
     'fontSize':'80px','color':'yellow'
@@ -30,7 +26,21 @@ const callback = function(){
     turns();
     $('span > h1').text(symbol);
     
-    winner(); 
+    if (winner() == 'X'){
+        console.log("Player 1 has won");
+        $('span > h1').text('_');
+        $(targetBox).off('click');
+    } 
+    else if (winner() == 'O'){
+        console.log("Player 2 has won");
+        $('span > h1').text('_');
+        $(targetBox).off('click');
+    }
+    else if ($(targetBox).text.length === 9){
+        console.log("It is a Tie ^_^");
+        $('span > h1').text('_');
+    }
+    
     
     //console.log(targetBox);
 
@@ -48,45 +58,45 @@ function winner() {
     for(let i=0;i<=2;i++){//First Row 
         if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                console.log('winner');
+                return $(targetBox[0]).text();
     }
     for(let i=3;i<=5;i++){//Second Row 
         if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                console.log('winner');
+                return $(targetBox[3]).text();
     }
     for(let i=6;i<=8;i++){//Third Row 
         if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                console.log('winner');
+                return $(targetBox[6]).text();
     }
     //For catching the wins by Columns
     for(let i=0;i<=6;i+=3){//First Column 
         if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                console.log('winner');
-    }
+                return $(targetBox[0]).text();
+        }
     for(let i=1;i<=7;i+=3){//Second Column 
         if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                console.log('winner');
+                return $(targetBox[1]).text();
     }
     for(let i=2;i<=8;i+=3){//Third Column 
         if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                console.log('winner');
-    }
+                return $(targetBox[2]).text();
+        }
     //For catching the wins by Corners 
     for(let i=0;i<=8;i+=4){//First Corner index from 0
         if( ($(targetBox[i]).text() && $(targetBox[i+4]).text() && $(targetBox[i+8]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+4]).text() && $(targetBox[i+4]).text() == $(targetBox[i+8]).text()) 
-                console.log('winner');
-    }
+                return $(targetBox[0]).text();
+        }
     for(let i=2;i<=6;i+=2){//Second Corner from index 2
         if( ($(targetBox[i]).text() && $(targetBox[i+2]).text() && $(targetBox[i+4]).text() ) != '' )
             if($(targetBox[i]).text() == $(targetBox[i+2]).text() && $(targetBox[i+2]).text() == $(targetBox[i+4]).text()) 
-                console.log('winner');
-    }
+                return $(targetBox[2]).text();
+        }
 }
 function turns() {
 
