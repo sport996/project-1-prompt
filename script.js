@@ -27,76 +27,80 @@ const callback = function(){
     $('span > h1').text(symbol);
     
     if (winner() == 'X'){
-        console.log("Player 1 has won");
         $('span > h1').text('_');
         $(targetBox).off('click');
+        alert("Player 1 has won");
     } 
     else if (winner() == 'O'){
-        console.log("Player 2 has won");
         $('span > h1').text('_');
         $(targetBox).off('click');
+        alert("Player 2 has won");
     }
     else if ($(targetBox).text.length === 9){
-        console.log("It is a Tie ^_^");
         $('span > h1').text('_');
+        alert("It is a Tie ^_^");
     }
     
-    
-    //console.log(targetBox);
-
-    // for(let i=0; i< targetBox.length;i++){
-    //     targetBox[i].text();
-    // }
-
-    //forEach loop
-    // targetBox.forEach(function(item, index){
-    //     targetBox[].text('X'); //how to determine the symbol
-    // });
 }
+function check(num1,num2,num3){
+    if( (num1 && num2 && num3 ) != '' )
+            if(num1 == num2 && num2 == num3)
+                return true;
+}
+
 function winner() { 
+// console.log(targetBox);
+// console.log($(targetBox[0]).text());
     //For catching the wins by Rows
-    for(let i=0;i<=2;i++){//First Row 
-        if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                return $(targetBox[0]).text();
+    for(let i=0;i<=2;i++){ //Columns
+        if(check($(targetBox[i]).text(), $(targetBox[i+3]).text(), $(targetBox[i+6]).text()))
+            return $(targetBox[i]).text();
+        // if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
+        //     if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text())
     }
-    for(let i=3;i<=5;i++){//Second Row 
-        if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                return $(targetBox[3]).text();
+    for(let i=0;i<=6;i+=3){ //Rows 
+        if(check($(targetBox[i]).text(), $(targetBox[i+1]).text(), $(targetBox[i+2]).text()))
+            return $(targetBox[i]).text();
+        // if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
+        //     if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
     }
-    for(let i=6;i<=8;i++){//Third Row 
-        if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
-                return $(targetBox[6]).text();
-    }
-    //For catching the wins by Columns
-    for(let i=0;i<=6;i+=3){//First Column 
-        if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                return $(targetBox[0]).text();
-        }
-    for(let i=1;i<=7;i+=3){//Second Column 
-        if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                return $(targetBox[1]).text();
-    }
-    for(let i=2;i<=8;i+=3){//Third Column 
-        if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-                return $(targetBox[2]).text();
-        }
-    //For catching the wins by Corners 
-    for(let i=0;i<=8;i+=4){//First Corner index from 0
-        if( ($(targetBox[i]).text() && $(targetBox[i+4]).text() && $(targetBox[i+8]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+4]).text() && $(targetBox[i+4]).text() == $(targetBox[i+8]).text()) 
-                return $(targetBox[0]).text();
-        }
-    for(let i=2;i<=6;i+=2){//Second Corner from index 2
-        if( ($(targetBox[i]).text() && $(targetBox[i+2]).text() && $(targetBox[i+4]).text() ) != '' )
-            if($(targetBox[i]).text() == $(targetBox[i+2]).text() && $(targetBox[i+2]).text() == $(targetBox[i+4]).text()) 
-                return $(targetBox[2]).text();
-        }
+    //Corners
+    if(check($(targetBox[0]).text(), $(targetBox[4]).text(), $(targetBox[8]).text()))
+        return $(targetBox[0]).text();
+    else if(check($(targetBox[2]).text(), $(targetBox[4]).text(), $(targetBox[6]).text()))
+        return $(targetBox[2]).text();
+    // for(let i=6;i<=8;i++){//Third Row 
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+1]).text() && $(targetBox[i+2]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+1]).text() && $(targetBox[i+1]).text() == $(targetBox[i+2]).text()) 
+    //             return $(targetBox[6]).text();
+    // }
+    // //For catching the wins by Columns
+    // for(let i=0;i<=6;i+=3){//First Column 
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
+    //             return $(targetBox[0]).text();
+    //     }
+    // for(let i=1;i<=7;i+=3){//Second Column 
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
+    //             return $(targetBox[1]).text();
+    // }
+    // for(let i=2;i<=8;i+=3){//Third Column 
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
+    //             return $(targetBox[2]).text();
+    //     }
+    // //For catching the wins by Corners 
+    // for(let i=0;i<=8;i+=4){//First Corner index from 0
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+4]).text() && $(targetBox[i+8]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+4]).text() && $(targetBox[i+4]).text() == $(targetBox[i+8]).text()) 
+    //             return $(targetBox[0]).text();
+    //     }
+    // for(let i=2;i<=6;i+=2){//Second Corner from index 2
+    //     if( ($(targetBox[i]).text() && $(targetBox[i+2]).text() && $(targetBox[i+4]).text() ) != '' )
+    //         if($(targetBox[i]).text() == $(targetBox[i+2]).text() && $(targetBox[i+2]).text() == $(targetBox[i+4]).text()) 
+    //             return $(targetBox[2]).text();
+    //     }
 }
 function turns() {
 
@@ -106,14 +110,6 @@ function turns() {
         symbol = "X";
     }
 }
-// function playersNum() {
-
-//     if (symbol === "X") {
-//         playerN = "Player 2";
-//     } else {
-//         playerN = "Player 2";
-//     }
-// }
 
 targetBox.one(eventType, callback);
 // document.addEventListener(eventType,targetBox);
