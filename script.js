@@ -25,7 +25,7 @@ const callback = function(){
     $(event.target).css('fontSize','90px',);
     turns();
     $('span > h1').text(symbol);
-    
+    let result;
     if (winner() == 'X'){
         $('span > h1').text('_');
         $(targetBox).off('click');
@@ -36,10 +36,13 @@ const callback = function(){
         $(targetBox).off('click');
         alert("Player 2 has won");
     }
-    else if ($(targetBox).text.length === 9){
+    else if ($(targetBox).text().length === 9){
         $('span > h1').text('_');
         alert("It is a Tie ^_^");
     }
+    
+}
+function fadeBody(result){
     
 }
 function check(num1,num2,num3){
