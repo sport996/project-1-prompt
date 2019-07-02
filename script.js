@@ -76,17 +76,17 @@ function winner() {
             if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
                 console.log('winner');
     }
-    // //For catching the wins by Corners 
-    // for(let i=0;i<=8;i+=3){//First Corner index from 0
-    //     if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
-    //         if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-    //             console.log('winner');
-    // }
-    // for(let i=2;i<=6;i+=3){//Second Corner from index 2
-    //     if( ($(targetBox[i]).text() && $(targetBox[i+3]).text() && $(targetBox[i+6]).text() ) != '' )
-    //         if($(targetBox[i]).text() == $(targetBox[i+3]).text() && $(targetBox[i+3]).text() == $(targetBox[i+6]).text()) 
-    //             console.log('winner');
-    // }
+    //For catching the wins by Corners 
+    for(let i=0;i<=8;i+=4){//First Corner index from 0
+        if( ($(targetBox[i]).text() && $(targetBox[i+4]).text() && $(targetBox[i+8]).text() ) != '' )
+            if($(targetBox[i]).text() == $(targetBox[i+4]).text() && $(targetBox[i+4]).text() == $(targetBox[i+8]).text()) 
+                console.log('winner');
+    }
+    for(let i=2;i<=6;i+=2){//Second Corner from index 2
+        if( ($(targetBox[i]).text() && $(targetBox[i+2]).text() && $(targetBox[i+4]).text() ) != '' )
+            if($(targetBox[i]).text() == $(targetBox[i+2]).text() && $(targetBox[i+2]).text() == $(targetBox[i+4]).text()) 
+                console.log('winner');
+    }
 }
 function turns() {
 
