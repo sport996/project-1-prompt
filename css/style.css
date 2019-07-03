@@ -1,12 +1,10 @@
  body{
-    /* background: url("https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.wallpapersafari.com%2F7%2F41%2F9nx6im.jpg&f=1"); */
     background: url(../img/bg.jpeg);
 } 
 
 body {
     max-width: 1100px;
     margin: auto;
-    /* background: black; */
     color: white; 
 }
 
@@ -60,7 +58,6 @@ aside > h1 {
 }
 
 aside > p {
-    /* border: double #2196F3; */
     font-size: 55px;
     padding: 2px 9px 2px 9px;
     color: chartreuse;
@@ -78,7 +75,6 @@ button {
     margin-top: 14px;
 }
 footer {
-    /* background: black; */
     color: white;
     text-align: center;
 
@@ -87,7 +83,7 @@ footer p {
     padding-top: 15px;
     font-size: 24px;    
 }
-/*  */
+
 @media (max-width: 650px) {
     header {
         margin-bottom: 50px;
