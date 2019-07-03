@@ -1,14 +1,11 @@
 //DOM Manipulation
-//Getting Players Names and saving them in variables
-//setTimeout method used to delay the prompt, so that the background image could be set
-const player1 = setTimeout(function(){  prompt('Enter Player 1 name:');}, 500);
-const player2 = setTimeout(function(){  prompt('Enter Player 2 name:');}, 500);
+
+//Getting the values into the DOM(Document Object Model) Tree
+$('h3#p1').text('player1'.toUpperCase());
+$('h3#p2').text('player2'.toUpperCase());
 //Changing the style of players names by jQuery library
 $('h3#p1').css('fontSize', '35px');
 $('h3#p2').css('fontSize', '35px');
-//Getting the values into the DOM(Document Object Model) Tree
-$('h3#p1').text(player1.toUpperCase());
-$('h3#p2').text(player2.toUpperCase());
 //Initiating the value of symbol which will be entered first
 let symbol = "X";
 //Getting the symbol into the box to clarify who's turn it is
