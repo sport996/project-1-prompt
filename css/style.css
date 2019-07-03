@@ -1,7 +1,12 @@
+ body{
+    /* background: url("https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.wallpapersafari.com%2F7%2F41%2F9nx6im.jpg&f=1"); */
+    background: url(../img/bg.jpeg);
+} 
+
 body {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: auto;
-    background: black;
+    /* background: black; */
     color: white; 
 }
 
@@ -13,6 +18,7 @@ header {
 
 header > h2, header > h3 {
     display: inline;
+    font-size: 30px;
 }
 
 main {
@@ -28,13 +34,13 @@ main {
 main > table , td {
     margin-top: 50px;
     margin-left: 0px;
-    border: double red;
+    border: double #2196F3;
 }
 
 
 
 td {
-    border: double red;
+    border: double #2196F3;
     width: 200px;
     height: 180px;
     text-align: center;
@@ -50,14 +56,14 @@ aside {
  
 aside > h1 {
     font-size: 35px;
-    color: yellow;
+    color: deepskyblue;
 }
 
 aside > p {
     /* border: double #2196F3; */
     font-size: 55px;
     padding: 2px 9px 2px 9px;
-    color: chocolate;
+    color: chartreuse;
     margin-bottom: 0px;
 }
 
@@ -65,23 +71,27 @@ button {
     width: 60px;
     height: 30px;
     border: double red;
-    background: black;
+    background: blue;
     color: yellow;
     text-align: center;
     font-size: 16px;
     margin-top: 14px;
 }
 footer {
-    background: white;
-    color: black;
+    /* background: black; */
+    color: white;
     text-align: center;
+
 }
 footer p {
     padding-top: 15px;
-    font-size: 18px;    
+    font-size: 24px;    
 }
 /*  */
-@media (max-width: 700px) {
+@media (max-width: 650px) {
+    header {
+        margin-bottom: 50px;
+    }
     .wrap {
       width: 100%;
       display: flex;
@@ -89,13 +99,14 @@ footer p {
       text-align: center;
     }
     body {
+        margin-top: 50px;
       width: 96%;
     }
     .main {
       margin: 0 20px;
     }
     td , tr{
-        height: 88px;
+        height: 100px;
     }
     aside {
         width: 30%;
@@ -103,7 +114,9 @@ footer p {
         margin-left: 10px;
         margin-top: 10px;
     }
-    footer, img {
+    footer {
+        padding-top: 63px;
+        font-size: 24px;
         width: 100%;
     }
   }

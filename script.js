@@ -1,7 +1,8 @@
 //DOM Manipulation
 //Getting Players Names and saving them in variables
-const player1 = prompt('Enter Player 1 name:');
-const player2 = prompt('Enter Player 2 name:');
+//setTimeout method used to delay the prompt, so that the background image could be set
+const player1 = setTimeout(function(){  prompt('Enter Player 1 name:');}, 500);
+const player2 = setTimeout(function(){  prompt('Enter Player 2 name:');}, 500);
 //Changing the style of players names by jQuery library
 $('h3#p1').css('fontSize', '35px');
 $('h3#p2').css('fontSize', '35px');
@@ -79,7 +80,9 @@ function check(num1,num2,num3){
 //
 function winner() { 
     //For catching the wins
-    //Columns
+    //Columns: the loop will run through each column in each iterate
+    //so we are going to have 3 iterates 
+    //each iterate will pass arguments to our check function 
     for(let i=0;i<=2;i++){ 
         if(check($(targetBox[i]).text(), $(targetBox[i+3]).text(), $(targetBox[i+6]).text()))
             return $(targetBox[i]).text();
@@ -89,7 +92,8 @@ function winner() {
         if(check($(targetBox[i]).text(), $(targetBox[i+1]).text(), $(targetBox[i+2]).text()))
             return $(targetBox[i]).text();
     }
-    //Corners
+    //Corners: the if-else conditions will check the values of our elements
+    //and return the result
     if(check($(targetBox[0]).text(), $(targetBox[4]).text(), $(targetBox[8]).text()))
         return $(targetBox[0]).text();
     else if(check($(targetBox[2]).text(), $(targetBox[4]).text(), $(targetBox[6]).text()))
@@ -104,6 +108,7 @@ function turns() {
         symbol = "X";
     }
 }
+
 //Binding the table data boxes to the callback function ..
 //of an event type that is stored in eventType Variable('click')
 //by using a jQuery method called one()
