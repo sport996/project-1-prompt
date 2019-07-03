@@ -66,9 +66,9 @@ const callback = function(){
     
 }
 //Function check(num1,num2,num3) will be used in our winner() function
-//it takes 3 arguments, checks if they are empty, if they are empty
-//it will check if they are equal and return true
-//otherwise it will return false
+// it takes 3 arguments, checks if they are empty, if they are not empty
+// it will check if they are equal and return true
+// otherwise it will return false
 function check(num1,num2,num3){
     if( (num1 && num2 && num3 ) != '' )
             if(num1 == num2 && num2 == num3)
@@ -89,7 +89,7 @@ function winner() {
         if(check($(targetBox[i]).text(), $(targetBox[i+1]).text(), $(targetBox[i+2]).text()))
             return $(targetBox[i]).text();
     }
-    //Corners: the if-else conditions will check the values of our elements
+    //Diagonals: the if-else conditions will check the values of our elements
     //and return the result
     if(check($(targetBox[0]).text(), $(targetBox[4]).text(), $(targetBox[8]).text()))
         return $(targetBox[0]).text();
