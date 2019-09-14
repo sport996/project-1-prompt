@@ -1,4 +1,8 @@
 ## Project #1: Tic Tac Toe
+
+# Deployed link:
+https://sport996.github.io/project-1-prompt/
+
 # Game overview:
 Tic Tac Toe game basically is between two players, whoever makes a horizontal, vertical, or diagonal row wins the game.
 # Technologies used:
