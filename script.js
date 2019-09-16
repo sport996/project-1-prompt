@@ -1,17 +1,20 @@
 //DOM Manipulation
 
 //Getting the values into the DOM(Document Object Model) Tree
-$('h3#p1').text('player1'.toUpperCase());
-$('h3#p2').text('player2'.toUpperCase());
+$headerP1 = $('h3#p1');
+$headerP2 = $('h3#p2');
+$headerP1.text('player1'.toUpperCase());
+$headerP2.text('player2'.toUpperCase());
 //Changing the style of players names by jQuery library
-$('h3#p1').css('fontSize', '35px');
-$('h3#p2').css('fontSize', '35px');
+$headerP1.css('fontSize', '35px');
+$headerP2.css('fontSize', '35px');
 //Initiating the value of symbol which will be entered first
 let symbol = "X";
 //Getting the symbol into the box to clarify who's turn it is
-$('span > h1').text(symbol);
+$turnsBox = $('span > h1');
+$turnsBox.text(symbol);
 //Changing the style of the box contents by jQuery library
-$('span > h1').css({
+$turnsBox.css({
     'fontSize':'80px','color':'yellow'
 });
 //Initiating the event type

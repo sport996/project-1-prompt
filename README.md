@@ -28,4 +28,3 @@ First step was to draw out the WireFrames and to think of applying the winning, 
 1. Adding an AI or random opponent.
 2. Enabling users to customize name and symbol.
 3. Tracking rounds of wins, loses, and tie.
-4. Enhancing the responsiveness.
